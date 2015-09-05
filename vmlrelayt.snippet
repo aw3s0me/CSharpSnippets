@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>vmlrelayt</Title>
+      <Author>aw3s0me@rocketmail.com</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>vmlrelayt</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>CMDF</ID>
+          <ToolTip>CMDF</ToolTip>
+          <Default>myCommand</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>CMD</ID>
+          <ToolTip>CMD</ToolTip>
+          <Default>MyCommand</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Type</ID>
+          <ToolTip>Type</ToolTip>
+          <Default>Type</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[private RelayCommand<$Type$> _$CMDF$;
+
+public RelayCommand<$Type$> $CMD$
+{
+    get
+    {
+        return _$CMDF$ ??
+            (_$CMDF$ = new RelayCommand<$Type$>($CMD$Handler));
+    }
+}
+
+/// <summary>
+/// Executes the $CMD$ command 
+/// </summary>
+private void $CMD$Handler($Type$ item)
+{
+    throw new NotImplementedException();
+}
+        
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

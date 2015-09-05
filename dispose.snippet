@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>dispose</Title>
+      <Author>aw3s0me@rocketmail.com</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>dispose</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp" Delimiter="$"><![CDATA[private bool disposed;
+
+#region IDisposable members
+
+public void Dispose()
+{
+    this.Dispose(true);
+    GC.SuppressFinalize(this);
+}
+
+protected virtual void Dispose(bool disposing)
+{
+    if (!this.disposed)
+    {
+        if (disposing)
+        {
+            // TODO: dispose this object
+        }
+
+        this.disposed = true;
+    }
+}
+
+#endregion]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
