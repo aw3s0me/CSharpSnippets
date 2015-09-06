@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>xamlimgbtn</Title>
+      <Author>aw3s0me@rocketmail.com</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>xamlimgbtn</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Style</ID>
+          <ToolTip>Style</ToolTip>
+          <Default>Style</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Command</ID>
+          <ToolTip>Command</ToolTip>
+          <Default>Command</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ImageStyle</ID>
+          <ToolTip>ImageStyle</ToolTip>
+          <Default>ImageStyle</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ImagePath</ID>
+          <ToolTip>ImagePath</ToolTip>
+          <Default>ImagePath</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Text</ID>
+          <ToolTip>Text</ToolTip>
+          <Default>Text</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="xaml" Delimiter="$"><![CDATA[<Button Style="{StaticResource $Style$}" Margin="3"
+                    Command="{Binding $Command$}">
+    <StackPanel>
+        <Image Source="$ImagePath$" Style="{StaticResource $ImageStyle$}" />
+        <TextBlock VerticalAlignment="Center">$Text$</TextBlock>
+    </StackPanel>
+</Button>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

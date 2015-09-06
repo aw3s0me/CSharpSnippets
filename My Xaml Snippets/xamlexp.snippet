@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>xamlexp</Title>
+      <Author>aw3s0me@rocketmail.com</Author>
+      <Description>Expander with text inside</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>xamlexp</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>ItemPath</ID>
+          <ToolTip>ItemPath</ToolTip>
+          <Default>ItemPath</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Description</ID>
+          <ToolTip>Description</ToolTip>
+          <Default>Description</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ItemList</ID>
+          <ToolTip>ItemList</ToolTip>
+          <Default>ItemList</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="xaml" Delimiter="$"><![CDATA[<!-- Стиль для расширяющихся TextBox -->
+<Style x:Key="TextBoxAutoExpandingStyle" TargetType="{x:Type TextBox}"
+           BasedOn="{StaticResource {x:Type TextBox}}">
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="AcceptsReturn" Value="True" />
+    <Setter Property="MinHeight" Value="60" />
+    <Setter Property="MaxHeight" Value="400" />
+    <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+</Style>
+
+<Expander Grid.Row="1" Header="$Description$">
+    <StackPanel Margin="10,4,0,0">
+        <TextBox Style="{StaticResource TextBoxAutoExpandingStyle}"
+            Text="{Binding ElementName=$ItemList$, Path=$ItemPath$}"
+                IsReadOnly="True" />
+    </StackPanel>
+</Expander>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>xamlgridet</Title>
+      <Author>aw3s0me@rocketmail.com</Author>
+      <Description>Datagrid with enum handler and description</Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>xamlgridet</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Description</ID>
+          <ToolTip>Description</ToolTip>
+          <Default>Description</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>DescriptionPath</ID>
+          <ToolTip>DescriptionPath</ToolTip>
+          <Default>DescriptionPath</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Enum</ID>
+          <ToolTip>Enum</ToolTip>
+          <Default>Enum</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>EnumPath</ID>
+          <ToolTip>EnumPath</ToolTip>
+          <Default>EnumPath</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>ItemSource</ID>
+          <ToolTip>ItemSource</ToolTip>
+          <Default>ItemSource</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>SelectedItem</ID>
+          <ToolTip>SelectedItem</ToolTip>
+          <Default>SelectedItem</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextHeader</ID>
+          <ToolTip>TextHeader</ToolTip>
+          <Default>TextHeader</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextHeaderP</ID>
+          <ToolTip>TextHeaderP</ToolTip>
+          <Default>TextHeaderP</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextHeaderPa</ID>
+          <ToolTip>TextHeaderPa</ToolTip>
+          <Default>TextHeaderPa</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextHeaderPat</ID>
+          <ToolTip>TextHeaderPat</ToolTip>
+          <Default>TextHeaderPat</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>TextHeaderPath</ID>
+          <ToolTip>TextHeaderPath</ToolTip>
+          <Default>TextHeaderPath</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="xaml" Delimiter="$"><![CDATA[ <DataGrid Grid.Column="" Grid.Row="" Margin="3"
+                      ItemsSource="{Binding Path=$ItemSource$}"
+                      SelectedItem="{Binding Path=$SelectedItem$}"
+                      SelectionMode="Single" 
+                      IsReadOnly="True" 
+                      CanUserAddRows="False" 
+                      AutoGenerateColumns="False"
+                      CanUserReorderColumns="False" 
+                      Background="White">
+    <DataGrid.Columns>
+        <DataGridTextColumn Header="$Description$" Binding="{Binding Path=$DescriptionPath$, UpdateSourceTrigger=Explicit}" Width="*" >
+            <DataGridTextColumn.ElementStyle>
+                <Style TargetType="TextBlock">
+                    <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                    <Setter Property="ToolTip" Value="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+                </Style>
+            </DataGridTextColumn.ElementStyle>
+        </DataGridTextColumn>
+        <DataGridTextColumn Header="$TextHeader$" Binding="{Binding Path=$TextHeaderPath$, UpdateSourceTrigger=Explicit}" Width="Auto" />
+        <DataGridTextColumn Header="$Enum$" Binding="{Binding Path=$EnumPath$, UpdateSourceTrigger=Explicit, Converter={StaticResource EnumToString}}" Width="Auto" />
+    </DataGrid.Columns>
+</DataGrid>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>xamltree</Title>
+      <Author>aw3s0me@rocketmail.com</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>xamltree</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>TreeRootCollection</ID>
+          <ToolTip>TreeRootCollection</ToolTip>
+          <Default>TreeRootCollection</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>Children</ID>
+          <ToolTip>Children</ToolTip>
+          <Default>Children</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="xaml" Delimiter="$"><![CDATA[    <Grid>
+        <TreeView x:Name="TreeView" ItemsSource="{Binding $TreeRootCollection$}"
+                  Tag="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+            <TreeView.ContextMenu>
+                <ContextMenu ItemContainerStyle="{StaticResource ContextMenuItemStyle}">
+                    <MenuItem Header="Добавить"
+                              Command="{Binding Path=PlacementTarget.Tag.DataContext.AddNeighborToSelectedElementCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}}">
+                        <MenuItem.Icon>
+                            <Image Source="add.png" Style="{StaticResource }" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Добавить ниже"
+                              Command="{Binding Path=PlacementTarget.Tag.DataContext.AddChildToSelectedElementCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}}">
+                        <MenuItem.Icon>
+                            <Image Source="add_below.png"  />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Изменить"
+                              Command="{Binding Path=PlacementTarget.Tag.DataContext.UpdateSelectedElementCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}}">
+                        <MenuItem.Icon>
+                            <Image Source="edit.png"  />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Удалить"
+                              Command="{Binding Path=PlacementTarget.Tag.DataContext.DeleteSelectedElementCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}}">
+                        <MenuItem.Icon>
+                            <Image Source="delete.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </TreeView.ContextMenu>
+            <TreeView.InputBindings>
+                <KeyBinding Key="Escape" Command="{Binding Path=SelectRootCommand}" />
+                <KeyBinding Gesture="CTRL+C" Command="{Binding Path=CopySelectedElementCommand}" />
+                <KeyBinding Gesture="CTRL+X" Command="{Binding Path=CutSelectedElementCommand}" />
+                <KeyBinding Gesture="CTRL+V" Command="{Binding Path=PasteElementCommand}" />
+            </TreeView.InputBindings>
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding $Children$}">
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <Image Source="{Binding ElementIcon}"
+                               Width="14"
+                               Height="14"
+                               Margin="0,0,6,0"
+                               SnapsToDevicePixels="True"
+                               Tag="{Binding DataContext, ElementName=LayoutRoot}">
+                        </Image>
+                        <TextBlock Text="{Binding DisplayName}" Tag="{Binding DataContext, ElementName=LayoutRoot}"
+                               HorizontalAlignment="Stretch">
+                        </TextBlock>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectedItemChanged">
+                    <mvvm:EventToCommand Command="{Binding SelectElementCommand, Mode=OneWay}"
+                                         CommandParameter="{Binding SelectedItem, ElementName=TreeView, Mode=OneWay}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TreeView>
+    </Grid>
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>lnqleftj</Title>
+      <Author>aw3s0me@rocketmail.com</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>lnqleftj</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp" Delimiter="$"><![CDATA[var q = 
+        from c in categories 
+        join p in products on c equals p.Category into ps 
+        from p in ps.DefaultIfEmpty() 
+        select new { Category = c, ProductName = p == null ? "(No products)" : p.ProductName }; ]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
